@@ -5,9 +5,9 @@ namespace UnityStandardAssets._2D
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
-        [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-        [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
-        [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
+        [SerializeField] private float m_MaxSpeed = 50f;                    // The fastest the player can travel in the x axis.
+        [SerializeField] private float m_JumpForce = 600f;                  // Amount of force added when the player jumps.
+        [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .50f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
 
@@ -74,7 +74,7 @@ namespace UnityStandardAssets._2D
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
                 // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed * 1.5f, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
@@ -96,10 +96,9 @@ namespace UnityStandardAssets._2D
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
                 if (transform.rotation.x == 0)
-                    m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                    m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 1.1f));
                 if (transform.rotation.x < 0)
-                    m_Rigidbody2D.AddForce(new Vector2(0f, -m_JumpForce));
-                Debug.Log("111");
+                    m_Rigidbody2D.AddForce(new Vector2(0f, -m_JumpForce * 1.1f));
             }
         }
 
