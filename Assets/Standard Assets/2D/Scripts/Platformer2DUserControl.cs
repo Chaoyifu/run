@@ -8,8 +8,7 @@ namespace UnityStandardAssets._2D
     public class Platformer2DUserControl : MonoBehaviour
     {
         private PlatformerCharacter2D m_Character;
-        private bool m_Jump;
-        private float sspeed = 5.0f; 
+        private bool m_Jump; 
 
         private void Awake()
         {
@@ -39,7 +38,6 @@ namespace UnityStandardAssets._2D
             // Pass all parameters to the character control script.
             m_Character.Move(h, crouch, m_Jump);
             m_Jump = false;
-            //m_Character.Move(sspeed * Time.deltaTime * 13, crouch, false);
         }
     }
 }

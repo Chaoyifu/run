@@ -8,13 +8,13 @@ public class rotateColider : MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.name == "player" && Input.GetKeyDown(KeyCode.S))
+        if (other.name == "Player" && Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("1111");
             Quaternion rot = other.transform.rotation;
             rot.x = -180f;
             other.transform.rotation = rot;
-            other.transform.position = new Vector3(other.transform.position.x, other.transform.position.y - 6, other.transform.position.z);
+            other.transform.position = new Vector3(other.transform.position.x, other.transform.position.y - 1f, other.transform.position.z);
         }
     }
 }
