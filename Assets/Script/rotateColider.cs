@@ -10,11 +10,10 @@ public class rotateColider : MonoBehaviour {
     {
         if (other.name == "Player" && Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("1111");
             Quaternion rot = other.transform.rotation;
             rot.x = -180f;
             other.transform.rotation = rot;
-            other.transform.position = new Vector3(other.transform.position.x, other.transform.position.y - 1f, other.transform.position.z);
+            other.transform.position = new Vector3(other.transform.position.x, 1.3f, other.transform.position.z);
         }
     }
 }
