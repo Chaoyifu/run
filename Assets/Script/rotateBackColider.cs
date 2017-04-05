@@ -15,7 +15,7 @@ public class rotateBackColider : MonoBehaviour {
             Quaternion rot = other.transform.rotation;
             rot.x = 0f;
             other.transform.rotation = rot;
-            other.transform.position = new Vector3(other.transform.position.x, 2.3f, other.transform.position.z);
+            other.transform.position = new Vector3(other.transform.position.x, 1.2f, other.transform.position.z);
         }
     }
 }
